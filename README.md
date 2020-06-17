@@ -4,6 +4,10 @@ Android App that calculates the roots of the Quadratic equation. Developed with 
 - Graph visualization;
 - SQLite database;
 
+Developers:
+- https://github.com/GabrielPrzy
+- https://github.com/allanvobraun
+
 ## App Screenshots
 ![Screen](https://github.com/GabrielPrzy/Bhaskara-App/blob/master/screens/telas-1.png)
 ![Screen](https://github.com/GabrielPrzy/Bhaskara-App/blob/master/screens/telas-02.png)
