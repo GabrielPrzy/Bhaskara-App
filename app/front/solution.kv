@@ -1,0 +1,29 @@
+#:import SolutionScroll app.classes.solution
+
+<BtnGraph@ButtonBehavior+Label>:
+    size_hint: (1, 0.1)
+    font_name: 'assets/fonts/times italic.ttf'
+    font_size: 34
+
+<SolutionScroll>:
+    cols: 1
+    steps: steps
+
+    BtnGraph:
+        text: 'Ver Gráfico'
+        on_release: app.root.current = 'grafico'
+
+    ScrollView:
+        do_scroll_x: False
+        do_scroll_y: True
+
+        Label:
+            font_name: 'assets/fonts/cambria.ttc'
+            id: steps
+            font_size: 36
+
+            size_hint_y: None
+            height: self.texture_size[1]
+            #text_size: self.width
+            padding: 10, 10
+            text: ""

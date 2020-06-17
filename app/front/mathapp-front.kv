@@ -1,0 +1,115 @@
+#:import utils kivy.utils
+#:import MainLayout app.classes.calculator_screen
+#:include app/front/keyboard.kv
+#:include app/front/topbar.kv
+#:include app/front/tela.kv
+#:include app/front/solution.kv
+#:include app/front/imagens.kv
+#:include app/front/historico.kv
+#:include app/front/grafico.kv
+
+<ScreenControler>:
+
+    canvas:
+        Color:
+            rgba: utils.get_color_from_hex('#151716')
+        Rectangle:
+            size:self.size
+            pos:self.pos
+
+    MainMenu:
+        name: 'menu'
+    MainLayout:
+        name: 'calculadora'
+    Imagens:
+        name: 'raiz'
+
+    Imagens:
+        name: 'concavidade'
+
+    Imagens:
+        name: 'fisica'
+
+    Historico:
+        name: 'historico'
+
+    Grafico:
+        name: 'grafico'
+
+    #Solution:
+
+<Botao@ButtonBehavior+Label>:
+    size_hint: (1, 0.2)
+    font_name: 'assets/fonts/CENTURY.ttf'
+    font_size: 36
+
+    canvas.before:
+        Color:
+            rgba: utils.get_color_from_hex('#083A0F')
+        Ellipse:
+            pos:self.pos
+            size:self.height,self.height
+        Ellipse:
+            pos:self.x+self.width-self.height,self.y
+            size:self.height,self.height
+        Rectangle:
+            pos:self.x+self.height/2.0,self.y
+            size:self.width-self.height,self.height
+
+<MainMenu@Screen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 70
+        spacing: 20
+
+        Image:
+            size_hint_y:None
+            height: 200
+            allow_stretch:True
+            source: 'assets/images/logo-r.png'
+
+            canvas.before:
+                Ellipse:
+                    pos:self.pos
+                    size:self.height,self.height
+                Ellipse:
+                    pos:self.x+self.width-self.height,self.y
+                    size:self.height,self.height
+                Rectangle:
+                    pos:self.x+self.height/2.0,self.y
+                    size:self.width-self.height,self.height
+
+        Botao:
+            text: 'Calculadora de raízes'
+            on_release: app.root.current = 'calculadora'
+
+        Botao:
+            text: 'O que é uma raíz?'
+            on_release: app.root.current = 'raiz'
+
+        Botao:
+            text: 'Concavidade da Equação'
+            on_release: app.root.current = 'concavidade'
+
+        Botao:
+            text: 'Equações na Física'
+            on_release: app.root.current = 'fisica'
+
+        Botao:
+            text: 'Sair'
+            on_release: app.stop()
+
+
+<MainLayout>:
+    canvas:
+        Color:
+            rgba: utils.get_color_from_hex('#41704d')
+        Rectangle:
+            size:self.size
+            pos:self.pos
+
+    GridLayout:
+        cols: 1
+        TopBar:
+        Tela:
+        Keyboard:

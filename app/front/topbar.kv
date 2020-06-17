@@ -1,0 +1,25 @@
+#:import utils kivy.utils
+#:import TopBar app.classes.topbar
+
+
+<TopBar>:
+    orientation: 'horizontal'
+    size_hint: (1, 0.16)
+    ActionBar:
+        background_normal: ''
+        background_image: 'assets/images/branco.png'
+        background_color: utils.get_color_from_hex('#083A0F')
+        pos_hint: {'top':1}
+        ActionView:
+            use_separator: True
+            ActionPrevious:
+                title: 'MathApp'
+                app_icon: ''
+                on_release:
+                    app.root.transition.direction = 'left'
+                    app.root.current = 'menu'
+            ActionOverflow:
+                overflow_image: root.get_image()
+                ActionButton:
+                    text: 'Histórico'
+                    on_release: app.root.current = 'historico'

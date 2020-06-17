@@ -1,0 +1,33 @@
+#:import Tela app.classes.tela
+
+<Tela>:
+    cols: 1
+    display: display
+    information: information
+    orientation: 'vertical'
+    spacing: 15
+
+    canvas:
+        Color:
+            rgba: utils.get_color_from_hex('#41704d')
+        Rectangle:
+            size:self.size
+            pos:self.pos
+
+
+    Label:
+        size_hint: (1,0.1)
+        id: information
+        size_hint: (1, 0.3)
+        text: 'Equação'
+        font_name: 'assets/fonts/times italic.ttf'
+        font_size: 34
+
+
+    Label:
+        size_hint: 1,0.2
+        id: display
+        text: ''
+        font_name: 'assets/fonts/times new.ttf'
+        font_size: 54
+        height: 5
